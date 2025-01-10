@@ -1,0 +1,16 @@
+beautifulsoup4
+requests
+trafilatura
+ollama
+urllib3
+lxml
+html5lib
+certifi
+charset-normalizer
+soupsieve
+idna
+justext
+courlan
+dateparser
+htmldate
+
