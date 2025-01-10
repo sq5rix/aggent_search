@@ -5,7 +5,7 @@ import requests
 import trafilatura
 from bs4 import BeautifulSoup
 
-from search_messages import CONTAINS_DATA_MSG, QUERY_GENERATOR_MSG
+from .search_messages import CONTAINS_DATA_MSG, QUERY_GENERATOR_MSG
 
 MODEL = "llama3.1:8b-instruct-q4_K_M"
 
@@ -112,15 +112,16 @@ class AISearchTool:
         return None
 
 
+def ai_search(query):
+    search_tool = AISearchTool()
+    result = search_tool.search(query)
+    if result:
+        return result.get("content")
+
+
 # Usage example:
 if __name__ == "__main__":
-    search_tool = AISearchTool()
-    result = search_tool.search(
-        "What are the latest developments in quantum computing?"
-    )
-    if result:
-        print(f"Query used: {result['query']}")
-        print(f"Source URL: {result['url']}")
-        print(f"Content snippet: {result['content'][:200]}...")
-    else:
-        print("No relevant results found.")
+    query = "find description of Billie Eilish lyrics style"
+    res = ai_search(query)
+    print(res.keys())
+    print(res.get("content"))

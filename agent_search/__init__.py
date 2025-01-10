@@ -1,4 +1,4 @@
-from .ai_search import AISearchTool
-from .search_function import web_search
+from .ai_search import ai_search
+from .search_messages import *
 
-__all__ = ["web_search", "AISearchTool"]
+__all__ = ["ai_search"]
